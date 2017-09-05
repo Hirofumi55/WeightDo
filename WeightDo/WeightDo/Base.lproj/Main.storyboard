@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="aou-Au-kH6"/>
+                    <tabBarItem key="tabBarItem" image="rank.png" id="aou-Au-kH6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mne-Zk-rA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="72w-cy-rt3"/>
+                    <tabBarItem key="tabBarItem" image="note-write-7.png" id="72w-cy-rt3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeB-0y-Qgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="kdW-4h-eX7"/>
+                    <tabBarItem key="tabBarItem" image="gear-7.png" id="kdW-4h-eX7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otE-g7-P6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,6 +88,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Biy-sn-Sm2" id="3De-Ic-Sv5">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-Y7-HYd">
+                                                    <rect key="frame" x="200" y="6" width="62" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -105,14 +114,33 @@
                             <constraint firstAttribute="trailing" secondItem="xpy-97-T0b" secondAttribute="trailing" id="xEA-j9-f1d"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Training Menu" id="ODX-51-DUF"/>
+                    <navigationItem key="navigationItem" id="YEa-aw-3oW">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="compose" id="v1m-Ki-om8">
+                            <connections>
+                                <action selector="tapComposeButton:" destination="mjO-Aw-Y2q" id="Hwx-aw-Srd"/>
+                            </connections>
+                        </barButtonItem>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="トレーニングメニュー" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" id="Y0P-lx-UIO">
+                            <rect key="frame" x="56" y="7" width="208" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zFv-Nn-V3B">
+                            <connections>
+                                <action selector="tapAddButton:" destination="mjO-Aw-Y2q" id="NuI-AH-2A6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xpy-97-T0b" id="2eu-cJ-qVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwZ-6X-TPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.25" y="-276.76056338028167"/>
+            <point key="canvasLocation" x="1908.75" y="-276.76056338028167"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MKu-iX-Tgw">
@@ -124,7 +152,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mjO-Aw-Y2q" kind="relationship" relationship="viewControllers" id="MOa-Ni-2Zn"/>
+                        <segue destination="PNu-ZJ-oa1" kind="relationship" relationship="viewControllers" id="MOa-Ni-2Zn"/>
                         <segue destination="31h-v4-MxM" kind="relationship" relationship="viewControllers" id="y2I-Zy-VNA"/>
                         <segue destination="A5A-Qr-85c" kind="relationship" relationship="viewControllers" id="Lke-M9-Uxx"/>
                         <segue destination="Jaq-aB-4IS" kind="relationship" relationship="viewControllers" id="MtU-U1-vBF"/>
@@ -134,5 +162,30 @@
             </objects>
             <point key="canvasLocation" x="-37" y="-275"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aCn-A7-Afj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PNu-ZJ-oa1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="dumbbell-7.png" selectedImage="dumbbell-7.png" id="ODX-51-DUF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y70-97-nTv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mjO-Aw-Y2q" kind="relationship" relationship="rootViewController" id="HB4-g5-x76"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="foK-oQ-5em" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.25" y="-276.76056338028167"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="dumbbell-7.png" width="30" height="30"/>
+        <image name="gear-7.png" width="30" height="30"/>
+        <image name="note-write-7.png" width="30" height="30"/>
+        <image name="rank.png" width="30" height="30"/>
+    </resources>
 </document>
