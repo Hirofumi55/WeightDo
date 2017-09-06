@@ -68,25 +68,57 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //トレーニングメニューの追加を行う
     @IBAction func tapAddButton(_ sender: Any) {
         
+        //アラートを生成
         let alert = UIAlertController(title: "トレーニングメニュー追加", message: "", preferredStyle: .alert)
         
-        // OKボタンの設定
+        //OKボタンの設定
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
-            // OKを押した時入力されていたテキストを表示
+            var textname: String = ""
+            var textset: String = ""
+            var textrep: String = ""
+            var textoption: String = ""
+            
+            
+            //OKを押した時入力されていたテキストを表示
             if let textFields = alert.textFields {
                 
-                // アラートに含まれるすべてのテキストフィールドを調べる
-                for textField in textFields {
-                    print(textField.text!)
+                //アラートに含まれるすべてのテキストフィールドを読み込む
+                if textFields[0].text != nil {
+                    textname = textFields[0].text!
+                } else {
+                    textname = "none"
+                }
+                
+                if textFields[1].text != nil {
+                    textset = textFields[1].text!
+                } else {
+                    textset = "1"
+                }
+                
+                if textFields[2].text != nil {
+                    textrep = textFields[2].text!
+                } else {
+                    textrep = "1"
+                }
+                
+                if textFields[3].text != nil {
+                    textoption = textFields[3].text!
+                } else {
+                    textoption = " "
                 }
             }
+            
+            //Realmに保存する
+            let realmController: RealmController  = RealmController.sharedInstance
+            realmController.addWeightData(name: textname,set: textset,rep: textrep,option: textoption)
+            
         })
         
         alert.addAction(okAction)
         
-        // キャンセルボタンの設定
+        //キャンセルボタンの設定
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         
@@ -105,12 +137,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             textField.placeholder = "レップ数"
         })
         
+        //説明文を入力するテキストフィールド
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "説明文"
+        })
         
-        alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
+        //シミュレータの種類によっては、これがないと警告が発生
+        alert.view.setNeedsLayout()
         
-        // アラートを画面に表示
+        //アラートを画面に表示
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
     
     //Composeボタンタップ
     @IBAction func tapComposeButton(_ sender: Any) {
