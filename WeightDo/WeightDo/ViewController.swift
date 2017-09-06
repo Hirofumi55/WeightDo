@@ -14,8 +14,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    //let sample: [String]  = ["Swift", "Java", "Python", "JavaScript"]
-    
     //tableView読み込み
     var result: Results<WeightData>?
     
@@ -65,14 +63,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
     //Addボタンタップ
+    //トレーニングメニューの追加を行う
     @IBAction func tapAddButton(_ sender: Any) {
         
+        let alert = UIAlertController(title: "トレーニングメニュー追加", message: "", preferredStyle: .alert)
+        
+        // OKボタンの設定
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            // OKを押した時入力されていたテキストを表示
+            if let textFields = alert.textFields {
+                
+                // アラートに含まれるすべてのテキストフィールドを調べる
+                for textField in textFields {
+                    print(textField.text!)
+                }
+            }
+        })
+        
+        alert.addAction(okAction)
+        
+        // キャンセルボタンの設定
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        //トレーニングメニューを入力するテキストフィールド
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "トレーニングメニュー"
+        })
+        
+        //セット数を入力するテキストフィールド
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "セット数"
+        })
+        
+        //レップ数を入力するテキストフィールド
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "レップ数"
+        })
+        
+        
+        alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
+        
+        // アラートを画面に表示
+        self.present(alert, animated: true, completion: nil)
     }
     
     //Composeボタンタップ
     @IBAction func tapComposeButton(_ sender: Any) {
+        
     }
+    
     
     
     
