@@ -119,6 +119,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let realmController: RealmController  = RealmController.sharedInstance
             realmController.addWeightData(name: textname,set: textset,rep: textrep,option: textoption)
             
+            
+            let realm = try! Realm()
+            self.result = realm.objects(WeightData.self)
+            self.tableView.reloadData()
         })
         
         alert.addAction(okAction)
@@ -153,9 +157,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //アラートを画面に表示
         self.present(alert, animated: true, completion: nil)
         
-        //テーブルビューの更新
-        tableView.reloadData()
     }
+    
     
     //セルがスワイプされた時に呼び出されるメソッド
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

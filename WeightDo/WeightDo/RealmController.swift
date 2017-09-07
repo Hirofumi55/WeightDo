@@ -40,7 +40,7 @@ class RealmController {
     //RealmのWeightDataを取得するメソッド
     func getWeightData() -> Results<WeightData> {
         let realm = try! Realm()
-        let result = realm.objects(WeightData)
+        let result = realm.objects(WeightData.self)
         
         return result
     }

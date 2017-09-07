@@ -58,7 +58,17 @@
                     <view key="view" contentMode="scaleToFill" id="Jmj-yK-Ppn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV9-6j-hh8">
+                                <rect key="frame" x="20" y="469" width="138" height="30"/>
+                                <state key="normal" title="全てのデータを削除"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mR6-lj-DjC" firstAttribute="top" secondItem="hV9-6j-hh8" secondAttribute="bottom" constant="20" id="WM3-by-t3o"/>
+                            <constraint firstItem="hV9-6j-hh8" firstAttribute="leading" secondItem="Jmj-yK-Ppn" secondAttribute="leading" constant="20" id="e0A-TC-gFb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="gear-7.png" id="kdW-4h-eX7"/>
                 </viewController>
