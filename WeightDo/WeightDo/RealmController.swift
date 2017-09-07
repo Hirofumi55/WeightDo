@@ -24,8 +24,8 @@ class WeightData: Object {
     //説明
     dynamic var option: String? = ""
     
-    
 }
+
 
 class RealmController {
     

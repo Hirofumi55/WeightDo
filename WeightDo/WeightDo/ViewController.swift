@@ -47,12 +47,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // セルを取得する
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "WeightCell")
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "WeightCell")
         
         let object = result?[indexPath.row]
         
         // セルに表示する値を設定する
         cell.textLabel?.text = object?.name
+        cell.detailTextLabel?.text = (object?.rep)! + "レップ  " + (object?.set)! + "セット"
+        cell.detailTextLabel?.textColor = UIColor.gray
         
         return cell
     }
@@ -60,7 +62,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //セルがタップされた時に呼び出されるデリゲートメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
         
+        //選択したセルにチェックマークをつける
+        cell?.accessoryType = .checkmark
     }
     
     
@@ -147,6 +152,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //アラートを画面に表示
         self.present(alert, animated: true, completion: nil)
+        
+        //テーブルビューの更新
+        tableView.reloadData()
+    }
+    
+    //セルがスワイプされた時に呼び出されるメソッド
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let realmController: RealmController  = RealmController.sharedInstance
+            
+            let object = result?[indexPath.row]
+            
+            realmController.deleteWeightData(weightData: object!)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     
