@@ -11,6 +11,7 @@
 		7E7B7C5C1F5EF23A00BCEDF1 /* note-write-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7B7C5B1F5EF23A00BCEDF1 /* note-write-7.png */; };
 		7E7B7C5E1F5EF2F700BCEDF1 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7B7C5D1F5EF2F700BCEDF1 /* rank.png */; };
 		7E7B7C601F5EF33000BCEDF1 /* gear-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7B7C5F1F5EF33000BCEDF1 /* gear-7.png */; };
+		7E7B7C661F62E1B800BCEDF1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */; };
 		7EBF45471F5DB30E007012A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45451F5DB30E007012A6 /* Realm.framework */; };
 		7EBF45481F5DB30E007012A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45451F5DB30E007012A6 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7EBF45491F5DB30E007012A6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45461F5DB30E007012A6 /* RealmSwift.framework */; };
@@ -53,6 +54,7 @@
 		7E7B7C5B1F5EF23A00BCEDF1 /* note-write-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "note-write-7.png"; sourceTree = "<group>"; };
 		7E7B7C5D1F5EF2F700BCEDF1 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
 		7E7B7C5F1F5EF33000BCEDF1 /* gear-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-7.png"; sourceTree = "<group>"; };
+		7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7EBF45451F5DB30E007012A6 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		7EBF45461F5DB30E007012A6 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		7EFF8BE41F5D946D0045FE2E /* WeightDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				7EFF8BE71F5D946D0045FE2E /* AppDelegate.swift */,
 				7EFF8BE91F5D946D0045FE2E /* ViewController.swift */,
 				7EFF8BFE1F5DAA890045FE2E /* RealmController.swift */,
+				7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */,
 				7EFF8BEB1F5D946D0045FE2E /* Main.storyboard */,
 				7EFF8BF01F5D946D0045FE2E /* LaunchScreen.storyboard */,
 				7EFF8BF31F5D946D0045FE2E /* Info.plist */,
@@ -196,6 +199,7 @@
 				7EFF8BFF1F5DAA890045FE2E /* RealmController.swift in Sources */,
 				7EFF8BEA1F5D946D0045FE2E /* ViewController.swift in Sources */,
 				7EFF8BE81F5D946D0045FE2E /* AppDelegate.swift in Sources */,
+				7E7B7C661F62E1B800BCEDF1 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
