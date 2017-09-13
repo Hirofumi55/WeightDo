@@ -14,8 +14,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    //タイトルのTextField
+    @IBOutlet weak var dayTextField: UITextField!
+    
+    
     //tableView読み込み
     var result: Results<WeightData>?
+    
+    //day
+    //var day: String = "1"
     
     
     override func viewDidLoad() {
@@ -198,10 +205,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func tapComposeButton(_ sender: Any) {
         
     }
-    
-    
-    
-    
-    
+
 }
+
 

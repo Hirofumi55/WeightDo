@@ -141,6 +141,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dayTextField" destination="Y0P-lx-UIO" id="TTW-3e-ji9"/>
                         <outlet property="tableView" destination="xpy-97-T0b" id="2eu-cJ-qVm"/>
                     </connections>
                 </viewController>
