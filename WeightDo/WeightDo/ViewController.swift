@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //tableView読み込み
     var result: Results<WeightData>?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,6 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             
+            var textday: String = ""
             var textname: String = ""
             var textset: String = ""
             var textrep: String = ""
@@ -91,25 +93,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 //アラートに含まれるすべてのテキストフィールドを読み込む
                 if textFields[0].text != nil {
-                    textname = textFields[0].text!
+                    textday = textFields[0].text!
+                } else {
+                    textday = "1"
+                }
+                
+                if textFields[1].text != nil {
+                    textname = textFields[1].text!
                 } else {
                     textname = "none"
                 }
                 
-                if textFields[1].text != nil {
-                    textset = textFields[1].text!
+                if textFields[2].text != nil {
+                    textset = textFields[2].text!
                 } else {
                     textset = "1"
                 }
                 
-                if textFields[2].text != nil {
-                    textrep = textFields[2].text!
+                if textFields[3].text != nil {
+                    textrep = textFields[3].text!
                 } else {
                     textrep = "1"
                 }
                 
-                if textFields[3].text != nil {
-                    textoption = textFields[3].text!
+                if textFields[4].text != nil {
+                    textoption = textFields[4].text!
                 } else {
                     textoption = " "
                 }
@@ -117,7 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             //Realmに保存する
             let realmController: RealmController  = RealmController.sharedInstance
-            realmController.addWeightData(name: textname,set: textset,rep: textrep,option: textoption)
+            realmController.addWeightData(day: textday, name: textname, set: textset, rep: textrep, option: textoption)
             
             
             let realm = try! Realm()
@@ -130,6 +138,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //キャンセルボタンの設定
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
+        
+        //トレーニングメニューを入力するテキストフィールド
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "トレーニング種別"
+        })
         
         //トレーニングメニューを入力するテキストフィールド
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
@@ -173,6 +186,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     

@@ -12,6 +12,9 @@ import RealmSwift
 
 class WeightData: Object {
     
+    //トレーニング種別
+    dynamic var day: String = "0"
+    
     //トレーニングメニュー名
     dynamic var name: String = "none"
     
@@ -46,11 +49,12 @@ class RealmController {
     }
     
     //RealmにWeightDataを追記するメソッド
-    func addWeightData(name: String, set: String, rep: String, option: String) -> () {
+    func addWeightData(day: String, name: String, set: String, rep: String, option: String) -> () {
         let realm = try! Realm()
         let weightData = WeightData()
         
         //インスタンスに値を代入する
+        weightData.day = day
         weightData.name = name
         weightData.set = set
         weightData.rep = rep
