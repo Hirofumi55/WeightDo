@@ -6,11 +6,11 @@
 //  Copyright © 2017 Sasakura Hirofumi. All rights reserved.
 //
 
+
 import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,17 +19,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //tableView読み込み
+    let realmController = RealmController()
     var result: Results<WeightData>?
-    
-    //day
-    //var day: String = "1"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let realm = try! Realm()
-        result = realm.objects(WeightData.self)
+        realmController = RealmController()
+        result = realmController.getWeightData
         tableView.reloadData()
     }
     
@@ -48,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //セルに表示する文字列の個数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return result!.count
+        return result.count
     }
     
     //セルに値を設定するデータソースメソッド
@@ -57,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // セルを取得する
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "WeightCell")
         
-        let object = result?[indexPath.row]
+        let object = result[indexPath.row]
         
         // セルに表示する値を設定する
         cell.textLabel?.text = object?.name
@@ -187,7 +185,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             let realmController: RealmController  = RealmController.sharedInstance
             
-            let object = result?[indexPath.row]
+            let object = result[indexPath.row]
             
             realmController.deleteWeightData(weightData: object!)
             
