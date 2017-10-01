@@ -14,24 +14,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var dayTextField: UITextField! //タイトルのテキスト
     
     //筋トレメニューデータ
-    var day: [String]? = []
-    var name: [String]? = []
-    var set: [String]? = []
-    var rep: [String]? = []
-    var option: [String]? = []
+    var day: [String]?
+    var name: [String]?
+    var set: [String]?
+    var rep: [String]?
+    var option: [String]?
     
+    var checked: [Bool] = [Bool](repeating: false, count: 100)
     
     override func viewDidLoad() {
         //super.viewDidLoad
         
         //UserDefaultsの読み込み
         let userDefaults = UserDefaults()
-        day = userDefaults.array(forKey: "day") as! [String]?
-        name = userDefaults.array(forKey: "name") as! [String]?
-        set = userDefaults.array(forKey: "set") as! [String]?
-        rep = userDefaults.array(forKey: "rep") as! [String]?
-        option = userDefaults.array(forKey: "option") as! [String]?
-
+        
+        //UserDefaultsが存在しているかの✔︎を実施して格納
+        if UserDefaults.standard.object(forKey: "day") != nil {
+            day = userDefaults.array(forKey: "day") as! [String]?
+        } else {
+            day = [" "]
+        }
+        
+        if UserDefaults.standard.object(forKey: "name") != nil {
+            name = userDefaults.array(forKey: "name") as! [String]?
+        } else {
+            name = [" "]
+        }
+        
+        if UserDefaults.standard.object(forKey: "set") != nil {
+            set = userDefaults.array(forKey: "set") as! [String]?
+        } else {
+            set = [" "]
+        }
+        
+        if UserDefaults.standard.object(forKey: "rep") != nil {
+            rep = userDefaults.array(forKey: "rep") as! [String]?
+        } else {
+            rep = [" "]
+        }
+        
+        if UserDefaults.standard.object(forKey: "option") != nil {
+            option = userDefaults.array(forKey: "option") as! [String]?
+        } else {
+            option = [" "]
+        }
+        
         //Table View読み込み
         tableView.reloadData()
     }
@@ -49,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //セルに表示する文字列の個数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        //オプショナルバインディング
         if let name = self.name {
             return name.count
         }
@@ -62,12 +90,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // セルに表示する値を設定する
         cell.textLabel?.text = name![indexPath.row]
-        cell.detailTextLabel?.text = (rep![indexPath.row]) + "レップ  " + (set![indexPath.row]) + "セット"
+        cell.detailTextLabel?.text = (rep![indexPath.row]) + "回  " + (set![indexPath.row]) + "セット"
         cell.detailTextLabel?.textColor = UIColor.gray
         
         return cell
     }
-    
     
     //セルがタップされた時に呼び出されるデリゲートメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -75,7 +102,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //選択したセルにチェックマークをつける
         cell?.accessoryType = .checkmark
     }
-    
     
     //Addボタンタップ
     //トレーニングメニューの追加を行う
@@ -111,13 +137,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if textFields[2].text != nil {
                     textset = textFields[2].text!
                 } else {
-                    textset = "1"
+                    textset = "5"
                 }
                 
                 if textFields[3].text != nil {
                     textrep = textFields[3].text!
                 } else {
-                    textrep = "1"
+                    textrep = "10"
                 }
                 
                 if textFields[4].text != nil {
@@ -204,7 +230,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        
+        if self.checked[indexPath.row] == false {
+            self.checked[indexPath.row] = true
+            return true
+        } else {
+            self.checked[indexPath.row] = false
+            return false
+        }
     }
 
     //Composeボタンタップ
