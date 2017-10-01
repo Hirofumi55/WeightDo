@@ -6,60 +6,63 @@
 //  Copyright © 2017 Sasakura Hirofumi. All rights reserved.
 //
 
-
 import UIKit
-import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! //テーブルビュー
+    @IBOutlet weak var dayTextField: UITextField! //タイトルのテキスト
     
-    //タイトルのTextField
-    @IBOutlet weak var dayTextField: UITextField!
-    
-    
-    //tableView読み込み
-    let realmController = RealmController()
-    var result: Results<WeightData>?
+    //筋トレメニューデータ
+    var day: [String]? = []
+    var name: [String]? = []
+    var set: [String]? = []
+    var rep: [String]? = []
+    var option: [String]? = []
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad
         
-        realmController = RealmController()
-        result = realmController.getWeightData
+        //UserDefaultsの読み込み
+        let userDefaults = UserDefaults()
+        day = userDefaults.array(forKey: "day") as! [String]?
+        name = userDefaults.array(forKey: "name") as! [String]?
+        set = userDefaults.array(forKey: "set") as! [String]?
+        rep = userDefaults.array(forKey: "rep") as! [String]?
+        option = userDefaults.array(forKey: "option") as! [String]?
+
+        //Table View読み込み
         tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tableView.reloadData()
     }
     
     //画面が表示される時などに再読み込みする
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
-    
     
     //セルに表示する文字列の個数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return result.count
+        
+        if let name = self.name {
+            return name.count
+        }
+        return 0
     }
     
     //セルに値を設定するデータソースメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // セルを取得する
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "WeightCell")
         
-        let object = result[indexPath.row]
-        
         // セルに表示する値を設定する
-        cell.textLabel?.text = object?.name
-        cell.detailTextLabel?.text = (object?.rep)! + "レップ  " + (object?.set)! + "セット"
+        cell.textLabel?.text = name![indexPath.row]
+        cell.detailTextLabel?.text = (rep![indexPath.row]) + "レップ  " + (set![indexPath.row]) + "セット"
         cell.detailTextLabel?.textColor = UIColor.gray
         
         return cell
@@ -69,7 +72,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //セルがタップされた時に呼び出されるデリゲートメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        
         //選択したセルにチェックマークをつける
         cell?.accessoryType = .checkmark
     }
@@ -78,10 +80,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Addボタンタップ
     //トレーニングメニューの追加を行う
     @IBAction func tapAddButton(_ sender: Any) {
-        
-        //アラートを生成
+        //アラート生成
         let alert = UIAlertController(title: "トレーニングメニュー追加", message: "", preferredStyle: .alert)
-        
         //OKボタンの設定
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
@@ -92,8 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             var textrep: String = ""
             var textoption: String = ""
             
-            
-            //OKを押した時入力されていたテキストを表示
+            //OKを押した時入力されていたテキストを格納
             if let textFields = alert.textFields {
                 
                 //アラートに含まれるすべてのテキストフィールドを読み込む
@@ -128,13 +127,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
             
-            //Realmに保存する
-            let realmController: RealmController  = RealmController.sharedInstance
-            realmController.addWeightData(day: textday, name: textname, set: textset, rep: textrep, option: textoption)
+            //データ更新処理
+            self.day!.append(textday)
+            self.name!.append(textname)
+            self.set!.append(textset)
+            self.rep!.append(textrep)
+            self.option!.append(textoption)
             
+            //UserDefaultsにデータを保存
+            let userDefaults = UserDefaults()
+            userDefaults.set(self.day, forKey: "day")
+            userDefaults.set(self.name, forKey: "name")
+            userDefaults.set(self.set, forKey: "set")
+            userDefaults.set(self.rep, forKey: "rep")
+            userDefaults.set(self.option, forKey: "option")
             
-            let realm = try! Realm()
-            self.result = realm.objects(WeightData.self)
             self.tableView.reloadData()
         })
         
@@ -148,22 +155,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = "トレーニング種別"
         })
-        
         //トレーニングメニューを入力するテキストフィールド
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = "トレーニングメニュー"
         })
-        
         //セット数を入力するテキストフィールド
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = "セット数"
         })
-        
         //レップ数を入力するテキストフィールド
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = "レップ数"
         })
-        
         //説明文を入力するテキストフィールド
         alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
             textField.placeholder = "説明文"
@@ -182,12 +185,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            self.day!.remove(at: indexPath.row)
+            self.name!.remove(at: indexPath.row)
+            self.set!.remove(at: indexPath.row)
+            self.rep!.remove(at: indexPath.row)
+            self.option!.remove(at: indexPath.row)
             
-            let realmController: RealmController  = RealmController.sharedInstance
-            
-            let object = result[indexPath.row]
-            
-            realmController.deleteWeightData(weightData: object!)
+            //UserDefaults更新
+            let userDefaults = UserDefaults()
+            userDefaults.set(self.day, forKey: "day")
+            userDefaults.set(self.name, forKey: "name")
+            userDefaults.set(self.set, forKey: "set")
+            userDefaults.set(self.rep, forKey: "rep")
+            userDefaults.set(self.option, forKey: "option")
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -196,9 +206,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    
-    
+
     //Composeボタンタップ
     @IBAction func tapComposeButton(_ sender: Any) {
         

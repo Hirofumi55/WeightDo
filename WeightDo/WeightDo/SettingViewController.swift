@@ -22,11 +22,7 @@ class SettingViewController: UIViewController {
     
     @IBAction func tapAllDeleteButton(_ sender: Any) {
         
-        //インスタンス生成
-        let realmController = RealmController.sharedInstance
         
-        //Realmのデータを全て削除
-        realmController.allDeleteWeightData()
     }
     
 }

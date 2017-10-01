@@ -12,27 +12,20 @@
 		7E7B7C5E1F5EF2F700BCEDF1 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7B7C5D1F5EF2F700BCEDF1 /* rank.png */; };
 		7E7B7C601F5EF33000BCEDF1 /* gear-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7B7C5F1F5EF33000BCEDF1 /* gear-7.png */; };
 		7E7B7C661F62E1B800BCEDF1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */; };
-		7EBF45471F5DB30E007012A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45451F5DB30E007012A6 /* Realm.framework */; };
-		7EBF45481F5DB30E007012A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45451F5DB30E007012A6 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7EBF45491F5DB30E007012A6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45461F5DB30E007012A6 /* RealmSwift.framework */; };
-		7EBF454A1F5DB30E007012A6 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBF45461F5DB30E007012A6 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7EFF8BE81F5D946D0045FE2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFF8BE71F5D946D0045FE2E /* AppDelegate.swift */; };
 		7EFF8BEA1F5D946D0045FE2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFF8BE91F5D946D0045FE2E /* ViewController.swift */; };
 		7EFF8BED1F5D946D0045FE2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFF8BEB1F5D946D0045FE2E /* Main.storyboard */; };
 		7EFF8BEF1F5D946D0045FE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EFF8BEE1F5D946D0045FE2E /* Assets.xcassets */; };
 		7EFF8BF21F5D946D0045FE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFF8BF01F5D946D0045FE2E /* LaunchScreen.storyboard */; };
-		7EFF8BFF1F5DAA890045FE2E /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFF8BFE1F5DAA890045FE2E /* RealmController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7EBF454B1F5DB30E007012A6 /* Embed Frameworks */ = {
+		7E2B13DE1F7808690000E700 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7EBF454A1F5DB30E007012A6 /* RealmSwift.framework in Embed Frameworks */,
-				7EBF45481F5DB30E007012A6 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,8 +48,6 @@
 		7E7B7C5D1F5EF2F700BCEDF1 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
 		7E7B7C5F1F5EF33000BCEDF1 /* gear-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-7.png"; sourceTree = "<group>"; };
 		7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		7EBF45451F5DB30E007012A6 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		7EBF45461F5DB30E007012A6 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		7EFF8BE41F5D946D0045FE2E /* WeightDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFF8BE71F5D946D0045FE2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EFF8BE91F5D946D0045FE2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +55,6 @@
 		7EFF8BEE1F5D946D0045FE2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EFF8BF11F5D946D0045FE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EFF8BF31F5D946D0045FE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EFF8BFE1F5DAA890045FE2E /* RealmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EBF45491F5DB30E007012A6 /* RealmSwift.framework in Frameworks */,
-				7EBF45471F5DB30E007012A6 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +71,6 @@
 		7EFF8BDB1F5D946D0045FE2E = {
 			isa = PBXGroup;
 			children = (
-				7EBF45451F5DB30E007012A6 /* Realm.framework */,
-				7EBF45461F5DB30E007012A6 /* RealmSwift.framework */,
 				7EFF8BE61F5D946D0045FE2E /* WeightDo */,
 				7EFF8BE51F5D946D0045FE2E /* Products */,
 			);
@@ -102,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				7EFF8BE71F5D946D0045FE2E /* AppDelegate.swift */,
-				7EFF8BFE1F5DAA890045FE2E /* RealmController.swift */,
 				7EFF8BE91F5D946D0045FE2E /* ViewController.swift */,
 				7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */,
 				7EFF8BEB1F5D946D0045FE2E /* Main.storyboard */,
@@ -128,7 +113,7 @@
 				7EFF8BE11F5D946D0045FE2E /* Frameworks */,
 				7EFF8BE21F5D946D0045FE2E /* Resources */,
 				7EFF8C0A1F5DAF1B0045FE2E /* Embed Frameworks */,
-				7EBF454B1F5DB30E007012A6 /* Embed Frameworks */,
+				7E2B13DE1F7808690000E700 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +181,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EFF8BFF1F5DAA890045FE2E /* RealmController.swift in Sources */,
 				7EFF8BEA1F5D946D0045FE2E /* ViewController.swift in Sources */,
 				7EFF8BE81F5D946D0045FE2E /* AppDelegate.swift in Sources */,
 				7E7B7C661F62E1B800BCEDF1 /* SettingViewController.swift in Sources */,
@@ -272,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -323,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -335,6 +319,7 @@
 		7EFF8BF71F5D946D0045FE2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6S724ALA48;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -342,10 +327,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WeightDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hirofumi55.WeightDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -353,6 +339,7 @@
 		7EFF8BF81F5D946D0045FE2E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6S724ALA48;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -360,10 +347,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WeightDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hirofumi55.WeightDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
