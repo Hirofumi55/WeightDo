@@ -21,8 +21,15 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func tapAllDeleteButton(_ sender: Any) {
+        let userDefaults = UserDefaults()
+        let saveDatas = ["day","name","rep","set","option"]
+        
+        for saveData in saveDatas {
+            userDefaults.removeObject(forKey: saveData)
+        }
         
         
     }
     
 }
+ 
