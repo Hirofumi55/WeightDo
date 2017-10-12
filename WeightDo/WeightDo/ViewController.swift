@@ -230,14 +230,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
-        if self.checked[indexPath.row] == false {
-            self.checked[indexPath.row] = true
-            return true
-        } else {
-            self.checked[indexPath.row] = false
-            return false
-        }
+        return true
+    }
+    
+    //セル移動時の処理
+    func tableView(_ tableView: UITableView, canMoveRowAt sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) -> Bool {
+        return true
     }
 
     //Composeボタンタップ
