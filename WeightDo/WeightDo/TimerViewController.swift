@@ -10,6 +10,12 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    let now = Date()
+    
+    let formatter = DateFormatter()
+//    formatterdataFormat = "yyyy//mm/dd HH:mm:ss"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

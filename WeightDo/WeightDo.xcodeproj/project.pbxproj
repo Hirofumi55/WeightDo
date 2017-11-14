@@ -93,11 +93,11 @@
 			children = (
 				7EFF8BE71F5D946D0045FE2E /* AppDelegate.swift */,
 				7EFF8BEB1F5D946D0045FE2E /* Main.storyboard */,
+				7EFF8BF01F5D946D0045FE2E /* LaunchScreen.storyboard */,
 				7EFF8BE91F5D946D0045FE2E /* ViewController.swift */,
 				7E064D101F8FBEF700E66777 /* RankingViewController.swift */,
 				7EFBD9A51FAC0EA100F949C1 /* TimerViewController.swift */,
 				7E7B7C651F62E1B800BCEDF1 /* SettingViewController.swift */,
-				7EFF8BF01F5D946D0045FE2E /* LaunchScreen.storyboard */,
 				7EFF8BF31F5D946D0045FE2E /* Info.plist */,
 				7EFF8BEE1F5D946D0045FE2E /* Assets.xcassets */,
 				7E7B7C591F5EF19A00BCEDF1 /* dumbbell-7.png */,

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eFO-8L-VBM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eFO-8L-VBM">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="-780" y="1277.1126760563379"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer View Controller-->
         <scene sceneID="HVN-z4-yyg">
             <objects>
-                <viewController id="A5A-Qr-85c" sceneMemberID="viewController">
+                <viewController id="A5A-Qr-85c" customClass="TimerViewController" customModule="WeightDo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dmL-1s-vuq"/>
                         <viewControllerLayoutGuide type="bottom" id="Xcm-Vz-kAU"/>
@@ -122,9 +122,39 @@
                     <view key="view" contentMode="scaleToFill" id="dZQ-mc-Ybn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ARp-wl-7VQ">
+                                <rect key="frame" x="119.5" y="263" width="82.5" height="42"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="udN-ZF-fh4">
+                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="42"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rql-Mn-Obl">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="42"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uov-JC-e0J">
+                                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                        <color key="textColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ARp-wl-7VQ" firstAttribute="centerX" secondItem="dZQ-mc-Ybn" secondAttribute="centerX" id="D9U-ad-yAC"/>
+                            <constraint firstItem="ARp-wl-7VQ" firstAttribute="centerY" secondItem="dZQ-mc-Ybn" secondAttribute="centerY" id="JLU-P7-dYI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="note-write-7.png" id="72w-cy-rt3"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="Uov-JC-e0J" id="38j-Da-hEA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeB-0y-Qgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
